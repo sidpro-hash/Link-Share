@@ -133,24 +133,3 @@ function App() {
 }
 
 export default App;
-/*
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCFfzUPQxhXU9UKEx5BPjE16c7KzOb6XEc",
-    authDomain: "link-share-7f067.firebaseapp.com",
-    projectId: "link-share-7f067",
-    storageBucket: "link-share-7f067.appspot.com",
-    messagingSenderId: "961738496645",
-    appId: "1:961738496645:web:65e2daf94ad58b952f27ec"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-*/
