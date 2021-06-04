@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import firebase from 'firebase/app';
 import firebaseDb from './firebase';
 import Header from './components/Header';
 import Links from './components/Links';
@@ -18,7 +19,7 @@ function App() {
 	//Fetch Links
 	const fetchLinks = async () => {
 		const data = [];
-		ref.get().then((querySnapshot) => {
+		ref.orderBy('date','desc').get().then((querySnapshot) => {
 			//console.log(querySnapshot.json())
 			querySnapshot.forEach((doc) => {
 		        // doc.data() is never undefined for query doc snapshots
@@ -42,7 +43,7 @@ function App() {
 	// Add link
 	const addLink = (link) => {
 		// Add a new document with a generated id.
-		
+			link.date = firebase.firestore.FieldValue.serverTimestamp()
 			ref.add(link)
 			.then((docRef) => {
 			    //console.log("Document written with ID: ", docRef.id);
