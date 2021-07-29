@@ -3,20 +3,24 @@ import {NavLink} from 'react-router-dom';
 
 const Navbar = () => {
 	function myFunction() {
-      // Declare variables
+     
       var input, filter, table, tr, td, i, txtValue;
       input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
+      filter = input.value.toLowerCase();
       table = document.getElementById("root");
       tr = table.getElementsByTagName("div");
+		
 
       // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-      td = tr[i].querySelectorAll("h4 span")[0];
+      for (i = 4; i < tr.length; i++) {
+      td = tr[i].querySelectorAll("h4 > span")[0];
+	
       if (td) {
         txtValue = td.innerText || td.textContent;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
+		
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+			
         } else {
         tr[i].style.display = "none";
         }

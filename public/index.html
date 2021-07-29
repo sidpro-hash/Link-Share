@@ -40,18 +40,35 @@
 
     <title>Link Share</title>
     <style>
-      
-      
+      #myBtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 40px;
+	  right: 48%;
+	  z-index: 999;
+	  border: none;
+	  outline: none;
+	  background-color: rgba(0,0,0,0.1);
+	  color: white;
+	  cursor: pointer;
+	  padding: 10px;
+	  border-radius: 15px;
+	  font-size: 16px;
 
+	}
+
+	#myBtn:hover {
+	  background-color: #555;
+	}
     </style>
   </head>
   <body>
-    
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!-- Footer -->
         <footer class="page-footer font-small blue">
-
+			
           <!-- Copyright -->
           <div class="footer-copyright text-center py-3">© 2021 Copyright:
             <a href="https://collegeek.com/"> collegeek.com</a>
@@ -60,5 +77,26 @@
 
         </footer>
         <!-- Footer -->
+		<script>
+	//Get the button
+	var mybutton = document.getElementById("myBtn");
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+		mybutton.style.display = "block";
+	  } else {
+		mybutton.style.display = "none";
+	  }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	  document.body.scrollTop = 0;
+	  document.documentElement.scrollTop = 0;
+	}
+	</script>
   </body>
 </html>
