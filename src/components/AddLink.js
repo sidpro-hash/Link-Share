@@ -17,16 +17,37 @@ const AddLink = ({onAdd}) => {
 	}
 
 	const eatLinks = async (Title,URL,day,id,date) => {
-		const res = await axios.post(URL,options);
-		//console.log(res);
-		const data = res.data
+		try{
+			const res = await axios.post(URL,options);
+
+			//console.log(res);
+			const data = res.data
+			
+			let title = data.title || Title;
+			let url = data.url || Title;
+			let img = data.image || "https://collegeek.com/image/icons/favicon-180x180.png";
+			let description = data.description;
+			onAdd({title,day,reminder,id,url,img,description,date})
+		}catch(err) {
+		  console.log(err.message);
+		  	let title = Title;
+			let url = Title;
+			let img = "https://collegeek.com/image/icons/favicon-180x180.png";
+			let description = "link is Private pages or pages that require authentication or login";
+		  onAdd({title,day,reminder,id,url,img,description,date})
+		}
+		
+	}
+	/*const eatLinks = async (Title,URL,day,id) => {
+		const res = await fetch(URL);
+		const data = await res.json()
 		
 		let title = data.title || Title;
 		let url = data.url || Title;
 		let img = data.image || "https://collegeek.com/image/icons/favicon-180x180.png";
 		let description = data.description;
-		onAdd({title,day,reminder,id,url,img,description,date})
-	}
+		onAdd({title,day,reminder,id,url,img,description})
+	}*/
 
 	const onSubmit = (e) => {
 		e.preventDefault();

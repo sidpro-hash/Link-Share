@@ -50,9 +50,11 @@ function App() {
 			    link.id = docRef.id;
 			    //console.log(link);
 				setLinks([...links,link]);
+				window.location.reload();
 			})
 			.catch((error) => {
 			    console.log("Error adding document: ", error);
+			   	alert("Error adding Link");
 			});
 
 	}
