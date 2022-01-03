@@ -18,10 +18,12 @@ const Link = ({link,onDelete,onCopy}) => {
   return (
   	<div id={link.id} className={`link ${link.reminder ? 'reminder' : ''}`}>
   		<h4><span>{link.title}</span> 
-  		 <FaTimes data-bs-toggle="tooltip" data-bs-placement="right" title="Delete Link!"
+  		 {link.reminder?(<FaTimes data-bs-toggle="tooltip" data-bs-placement="right" title="Not Allowed!"
+  		 style={{color:'#c2c0c0',cursor:'not-allowed'}} 
+  		 />):(<FaTimes data-bs-toggle="tooltip" data-bs-placement="right" title="Delete Link!"
   		 style={{color:'red',cursor:'pointer'}} 
   		 onClick={() => onDelete(link.id)}
-  		 />
+  		 />)}		
   		 </h4>
   		 <p><img src={link.img} alt="icon" style={{width:'25px',height:'25px'}}></img>&nbsp;&nbsp;{link.description}</p>
   		<p><a href={link.url} rel="noreferrer" target="_blank"> {link.url} </a>&nbsp;&nbsp;
